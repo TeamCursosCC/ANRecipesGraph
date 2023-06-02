@@ -3,6 +3,13 @@
 Proyecto de posgrado de anlisis de redes 2023.
 Analisis sobre grafo de recetas de cocina.
 
+## Herramientas
+
+* Python
+* networkx
+* Gephi
+* LateX
+
 ## Orientacion
 
 * Recomendaciones de recetas utilizando el grafo de ingredientes
