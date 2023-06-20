@@ -9,6 +9,9 @@ class RecipesEngine():
         
         pass
     
+    def load_graph(self):
+        pass
+    
     def suggest_recipes_from_ingredients(self, ingredients:list):
         
         pass
