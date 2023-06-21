@@ -187,5 +187,6 @@ There are several types of data that could be added to the graph of recipes and 
 
 Overall, adding additional data to the graph of recipes and ingredients can improve the accuracy and relevance of recipe suggestions. By incorporating additional information about nutritional content, user ratings, cooking time and difficulty, seasonal ingredients, and cuisine type, the graph can provide more personalized and tailored recipe suggestions that better meet the needs and preferences of individual users.
 
+## Fuentes de datos por verificar
 
-
+* [precios el toque](https://precio-alimentos.eltoque.com/)
