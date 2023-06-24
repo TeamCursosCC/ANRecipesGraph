@@ -11,7 +11,17 @@ class RecipesEngine():
     """
     def __init__(self):
         
-        self.recipesGraph = nx.Graph()
+        self.recipesGraph = None
+        
+        try:
+            self.load_graph()
+            pass
+        except Exception as e:
+            print(e)
+            pass
+        
+        if self.recipesGraph is None:
+            self.recipesGraph = nx.Graph()
         
         pass
     
@@ -19,11 +29,17 @@ class RecipesEngine():
         self.recipesGraph = nx.read_graphml(GRAPH_PATH)      
         pass
     
-    def create_graph_from_json(self):
+    def save_graph(self):
+        nx.write_graphml(self.recipesGraph, GRAPH_PATH)    
+        pass
+    
+    def update_graph_from_json(self):
         
         recipes = {}
         with open(JSON_DATA_PATH) as f:
             recipes = json.load(f)
+            
+        #TODO: Add Filter for similar names on recipes or ingredients
         
         for recip_k, recip_data in recipes.items():
     
@@ -39,7 +55,6 @@ class RecipesEngine():
             
             pass
 
-            nx.write_graphml(self.recipesGraph, "data/recipes_graph.graphml")
         pass
     
     def suggest_recipes_from_ingredients(self, ingredients:list):
