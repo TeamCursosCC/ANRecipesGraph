@@ -3,14 +3,22 @@
 ## Ideas
 
 * Sugerencias de sustitucion de ingredientes
-* Informacion sobre obtención
-* Crear un Menu Diario
-* Crear un Menu Semanal
-* Crear un Menu Mensual
-* Ubicación de los ingredientes
-* Costo de los ingredientes y las recetas
-* Balance Nutricional
-* De una lista de ingredientes sugerir posibles recetas
+
+* Informacion sobre obtención (metodo de elaboracion, metadatado, instrucciones)
+
+* Crear un Menu
+  * diario
+  * semanal
+  * mensual
+
+* Ubicación de los ingredientes (tabla con datos regionales y de epoca)
+
+* Costo de los ingredientes y las recetas (tabla con datos de costos)
+
+* Balance Nutricional (tabla con datos notricionales)
+
+* De una lista de ingredientes sugerir posibles recetas (analisis de grafo)
+
 * Estimacion de porciones de tipicas frases de la concina a una porcion con unidad de medida del SI
 
 * Usando NLTK compilar las instrucciones de recetas de cocina para extraer:
@@ -19,7 +27,9 @@
   * metodo de aplicacion
 
 * A partir del balance nutricional escoger posibles ingredientes
+
 * Filtrar ingredientes por zona
+
 * Sugerir recetas a partir de ingredientes
 
 ## Modelo de Datos

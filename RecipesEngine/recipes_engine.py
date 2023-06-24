@@ -69,5 +69,16 @@ class RecipesEngine():
         
         pass
     
+    def estimate_recipe_cost(self, recipe: dict):
+        
+        # Buscar en un dict de ingredientes sus datos de costo
+        
+        # de la receta sacar la cantidad de ingredientes
+        
+        # normalizar las cantidades bajo cirterios conocidos para multiplicar costo por cantidad
+        
+        # retornar suma de costos por ingredientes
+        
+        pass
     
     pass
