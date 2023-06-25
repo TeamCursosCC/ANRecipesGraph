@@ -39,3 +39,6 @@
 - [ ] Smart Fridge
 - [ ] Nutricional información: 
 - [ ] Cuisine type
+
+Ebook parser notas
+https://www.bitsgalore.org/2023/03/09/extracting-text-from-epub-files-in-python
