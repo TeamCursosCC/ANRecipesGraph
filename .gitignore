@@ -9,7 +9,7 @@ __pycache__/
 # Archivos de datos grandes
 data/*.csv
 data/*.json
-data/*.graphhml
+data/*.graphml
 
 # Archivos compilados y binarios
 *.pyc
