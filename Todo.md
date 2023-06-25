@@ -4,7 +4,7 @@
 
   - [x] Buscar la tabla en Villa-pol
 
-- [ ] Grafo dirigido [R]
+- [x] Grafo dirigido [R]
 
 - [ ] Implementar las funcionalidades basadas en análisis de grafos 
 
@@ -14,7 +14,7 @@
   - [ ] Sugerir sustituto para un ingrediente [R]
     - [ ] Si un ingrediente participa en las mismas recetas que otro altamente probable que sea sustituto
   - [ ] Estimar el costo de una receta [R-J]
-    - [ ] Toque
+    - [ ] El Toque
     - [ ] Translate 
     - [ ] api de costos
     - [x] api de cantidades
@@ -26,9 +26,7 @@
   - [ ] Peso según grado 
   - [ ] Color respecto tipo de receta 
 
-  
-
-
+- [ ] Crear programa de pruebas para el Engine
 
 ## Ideas 
 
@@ -37,7 +35,7 @@
 - [ ] Compilador de pasos 
 - [ ] Construir un menú 
 - [ ] Smart Fridge
-- [ ] Nutricional información: 
+- [ ] información nutricional
 - [ ] Cuisine type
 
 Ebook parser notas

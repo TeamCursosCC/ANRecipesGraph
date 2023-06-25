@@ -200,3 +200,29 @@ Overall, adding additional data to the graph of recipes and ingredients can impr
 ## Fuentes de datos por verificar
 
 * [precios el toque](https://precio-alimentos.eltoque.com/)
+
+
+## Estrategias para Menus
+
+### Preguntas
+
+Qué aspectos se deben tener en cuenta para crear un menu semanal para dos personas, incluyendo desayuno, almuerzo y comida? Dado un grafo de ingredientes y recetas, qué información sería relevante para a partir del grafo extraer las sugerencias de las recetas que pueden ser consideradas en el menú? Cómo utilizar tecnicas de analisis de grafos para determinar qué recetas serían buenas sustitutas para una receta dada?
+
+### Sugerencias
+
+Para crear un menú semanal para dos personas, es importante tener en cuenta los siguientes aspectos:
+
+1. Gustos y preferencias alimentarias de las personas involucradas.
+2. Disponibilidad de tiempo para cocinar y preparar las comidas.
+3. Presupuesto disponible para la compra de ingredientes.
+4. Nutrientes necesarios para una alimentación saludable y balanceada.
+5. Variedad de alimentos para evitar la monotonía y asegurar una dieta equilibrada.
+
+Con respecto al grafo de ingredientes y recetas, la información relevante para extraer sugerencias de recetas para el menú sería:
+
+1. La lista de ingredientes necesarios para cada receta.
+2. Las categorías de las recetas (por ejemplo, desayuno, almuerzo, cena, vegetariano, sin gluten, etc.).
+3. La complejidad de la receta (por ejemplo, tiempo de preparación, nivel de habilidad culinaria requerido).
+4. Las recetas que utilizan ingredientes similares o relacionados.
+
+Para determinar qué recetas serían buenas sustitutas para una receta dada, se pueden utilizar técnicas de análisis de grafos como la búsqueda de vecindarios o la identificación de comunidades. Por ejemplo, si se tiene una receta que utiliza pollo como ingrediente principal, se podría buscar otras recetas que también utilicen pollo y que tengan ingredientes similares o relacionados. También se podría identificar comunidades de recetas que comparten ingredientes similares y explorar las opciones dentro de esas comunidades como posibles sustitutas para la receta dada.
