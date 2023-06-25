@@ -2,14 +2,13 @@
 import networkx as nx
 import json
 
-JSON_DATA_PATH = "data/recipes_graph.graphml"
-GRAPH_PATH = "data/recipes.json"
-
 class RecipesEngine():
     """
     Class Description: RecipesEngine
     """
-    def __init__(self):
+    def __init__(self, graph_path):
+        
+        self.graphPath = graph_path
         
         self.recipesGraph = None
         
@@ -21,30 +20,23 @@ class RecipesEngine():
             pass
         
         if self.recipesGraph is None:
-            self.recipesGraph = nx.Graph()
+            self.recipesGraph = nx.DiGraph()
+            # self.recipesGraph = nx.Graph()
         
         pass
     
     def load_graph(self):
-        self.recipesGraph = nx.read_graphml(GRAPH_PATH)      
+        self.recipesGraph = nx.read_graphml(self.graphPath)   
         pass
     
     def save_graph(self):
-        nx.write_graphml(self.recipesGraph, GRAPH_PATH)    
+        nx.write_graphml(self.recipesGraph, self.graphPath)    
         pass
     
-    def update_graph_from_parsed_json_datasets(self):
-        
-        PARSED_DIR = ""
-        
-        
-        
-        pass
-    
-    def update_graph_from_json(self):
+    def update_graph_from_json(self, json_data_path):
         
         recipes = {}
-        with open(JSON_DATA_PATH) as f:
+        with open(json_data_path) as f:
             recipes = json.load(f)
             
         #TODO: Add Filter for similar names on recipes or ingredients
@@ -63,6 +55,16 @@ class RecipesEngine():
             
             pass
 
+        pass
+    
+    def update_graph_from_large_json_dataset(self, dataset_dir_path):
+        
+        from RecipesEngine.recipes_model import JsonRecipesLoaderV1
+        
+        json_loader = JsonRecipesLoaderV1(self.recipesGraph)
+        
+        json_loader.load_json_files(dataset_dir_path)
+        
         pass
     
     def suggest_recipes_from_ingredients(self, ingredients:list):
