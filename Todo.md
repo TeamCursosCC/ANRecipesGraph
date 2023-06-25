@@ -17,7 +17,7 @@
     - [ ] Toque
     - [ ] Translate 
     - [ ] api de costos
-    - [ ] api de cantidades
+    - [x] api de cantidades
 
 - [ ] Articulo 
 
