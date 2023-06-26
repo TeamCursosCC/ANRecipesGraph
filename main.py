@@ -13,11 +13,15 @@ def main():
     
     print("Loading Graph from large data set")
     
-    recipes_engine.update_graph_from_large_json_dataset(JSON_RECIPES_DATA_DIR)
+    if recipes_engine.update_graph_from_large_json_dataset(JSON_RECIPES_DATA_DIR):
+        print("Saving graph")
+        recipes_engine.save_graph()
+        pass
     
-    print("Saving graph")
-    
-    recipes_engine.save_graph()
+    target_recipe = "lemon pie"
+    target_ingredient = "lemon"
+    substitute = recipes_engine.suggest_ingredient_substitute("lemon", "lemon pay")
+    print(f"On {target_recipe} recipe, the {target_ingredient} ingredient could be replaced by {substitute}")
     
     print("End")
 

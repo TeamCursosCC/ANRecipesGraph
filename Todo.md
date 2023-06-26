@@ -12,7 +12,7 @@
     - [ ] Utilizar el camino mínimo para sacar la receta 
     - [ ] Grupos comunes de esos nodos y aplicar clúster y luego caminamos sobre cada grupo, sugerencia de recetas de un grupo 
   - [ ] Sugerir sustituto para un ingrediente [R]
-    - [ ] Si un ingrediente participa en las mismas recetas que otro altamente probable que sea sustituto
+    - Si un ingrediente participa en las mismas recetas que otro es altamente probable que sea sustituto. No necesariamente, Ejemplo: Agua y Sal...
   - [ ] Estimar el costo de una receta [R-J]
     - [ ] El Toque
     - [ ] Translate 
