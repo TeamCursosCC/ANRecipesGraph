@@ -13,10 +13,10 @@
     - [ ] Grupos comunes de esos nodos y aplicar clúster y luego caminamos sobre cada grupo, sugerencia de recetas de un grupo 
   - [x] Sugerir sustituto para un ingrediente [R]
     - Si un ingrediente participa en las mismas recetas que otro es mas probable que sea sustituto.
-  - [ ] Estimar el costo de una receta [R-J]
-    - [ ] El Toque
-    - [ ] Translate 
-    - [ ] api de costos
+  - [x] Estimar el costo de una receta [R-J]
+    - [x] El Toque -> no puede ser El toque o nada cubano, se trabajo con Amazon 
+    - [x] Translate -> No hace falta 
+    - [x] api de costos
     - [x] api de cantidades
 
 - [ ] Articulo en LaTex
