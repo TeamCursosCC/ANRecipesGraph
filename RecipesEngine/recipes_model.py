@@ -95,17 +95,26 @@ class JsonRecipesLoaderV1():
 
     def load_json_files(self, directory_path):
         limit = 1
-        for filename in os.listdir(directory_path):
-            if filename.endswith(".json"):
-                # Load the JSON file as a dictionary
-                with open(os.path.join(directory_path, filename)) as f:
-                    json_data = json.load(f)
-                # Call the add_recipes function with the dictionary as input
-                self._add_recipes(json_data)
-            limit -= 1
-            if limit <= 0:
-                break
+        load_succes = True
+        try:
+            for filename in os.listdir(directory_path):
+                if filename.endswith(".json"):
+                    # Load the JSON file as a dictionary
+                    with open(os.path.join(directory_path, filename)) as f:
+                        json_data = json.load(f)
+                    # Call the add_recipes function with the dictionary as input
+                    self._add_recipes(json_data)
+                limit -= 1
+                if limit <= 0:
+                    break
+                pass
             pass
+        except Exception as e:
+            print(e)
+            load_succes = False
+            pass
+        
+        return load_succes
 
     # def getRecipe(self):
     #     r_name = ""
