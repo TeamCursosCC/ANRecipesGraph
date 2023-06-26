@@ -167,5 +167,11 @@ class RecipesEngine:
         # retornar suma de costos por ingredientes
 
         pass
+    
+    def get_recipes_for_ingredient(self, ingredient:str):
+        return self.recipesGraph.predecessors(ingredient)
+    
+    def get_ingredients_for_recipe(self, recipe:str):
+        return self.recipesGraph.successors(recipe)
 
     pass

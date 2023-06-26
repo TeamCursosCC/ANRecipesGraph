@@ -1,5 +1,6 @@
 # from RecipesEngine.recipes_model import JsonRecipesLoaderV1
 from RecipesEngine.recipes_engine import RecipesEngine
+import click
 
 GRAPH_PATH = "data/recipes_graph.graphml"
 JSON_DATA_PATH = "data/recipes.json"
@@ -7,6 +8,11 @@ JSON_DATA_PATH = "data/recipes.json"
 JSON_RECIPES_DATA_DIR = "C:/Users/Roger/Desktop/work/posgrados/cna/proyecto/Data/parsed_data"
 
 recipes_engine = RecipesEngine(GRAPH_PATH)
+
+
+def print_related_recipes_for_ingredient(ingredient:str):
+    
+    pass
 
 def main():
     print("Hello")
