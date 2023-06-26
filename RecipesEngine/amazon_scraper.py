@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[85]:
 
 
 #Necessary library importation
@@ -18,7 +18,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-# In[16]:
+# In[152]:
 
 
 class AmazonPriceScraper(object):
@@ -37,11 +37,12 @@ class AmazonPriceScraper(object):
 		self.datos = {'NAME':[],'ASIN':[],"QUANTITY":[],"UNIT":[],'PRICE':[],'RATINGS':[],'RATINGS NUM':[],'LINK':[]}
 		pass
 
-	def scraper_engine(self, product = 'saltine crackers'):
+	def scraper_engine(self, product = 'saltine crackers', ):
 		url = f"https://www.amazon.com/s?k={product}"
 
 		self.options = webdriver.ChromeOptions()
 		self.options.add_argument("start-maximized")
+		#self.options.add_argument("--headless")
 		self.options.add_argument("--lang=en")
 		
 		self.driver = webdriver.Chrome(options=self.options)
@@ -51,8 +52,6 @@ class AmazonPriceScraper(object):
 
 		self.wait.until(EC.element_to_be_clickable(
 			(By.ID, 'nav-global-location-popover-link'))).click()
-
-		
 			
 		self.wait.until(EC.element_to_be_clickable(
 			(By.CSS_SELECTOR, "[data-action='GLUXPostalInputAction']"))).send_keys("33177")
@@ -60,34 +59,20 @@ class AmazonPriceScraper(object):
 			(By.CSS_SELECTOR, "[aria-labelledby='GLUXZipUpdate-announce']"))).click()
 		self.wait.until(EC.element_to_be_clickable(
 			(By.CSS_SELECTOR, ".a-popover-footer #GLUXConfirmClose"))).click()
-		self.loging = True
 		time.sleep(1)
 		
-		#wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".glow-toaster-footer input[data-action-type='DISMISS']"))).click()
-		#
-
+		#self.wait.until(EC.element_to_be_clickable(
+		#	(By.CSS_SELECTOR, ".glow-toaster-footer input[data-action-type='DISMISS']"))).click()      
 		items = self.wait.until(EC.presence_of_all_elements_located((By.XPATH, '//div[contains(@class, "s-result-item s-asin")]')))
-
-		link = ""
-		product_name = []
-		product_price = []
-		product_ratings = []
-		product_ratings_num = []
-		product_asin = []
-		product_link = []                       
-
+        
 		for item in items:
 			
 			# Get the link and asin
 			link = item.find_element(By.XPATH, self.link_XPATH).get_attribute("href")			
 			if "/dp/" not in link :continue	
 			final_link = link.split("ref")[0]
-			product_link.append(final_link)
 
 			asin = link.split("/")[5].split("?")[0]
-			product_asin.append(asin)			
-
-
 
 			# Get the price
 			whole_price = item.find_elements(By.XPATH, './/span[@class="a-price-whole"]')
@@ -99,37 +84,27 @@ class AmazonPriceScraper(object):
 				price = 0
 				pass
 
-			product_price.append(price) 
-
 		   # find ratings box
 			ratings_box = item.find_elements(By.XPATH, './/div[@class="a-row a-size-small"]/span')
 
 			# find ratings and ratings_num
 			if ratings_box != []:
-				ratings = ratings_box[0].get_attribute('aria-label')
+				ratings = ratings_box[0].get_attribute('aria-label').replace('out of 5 stars','')
 				ratings_num = ratings_box[1].get_attribute('aria-label')
 			else:
 				ratings, ratings_num = 0, 0
-
-			product_ratings.append(ratings)
-			product_ratings_num.append(str(ratings_num))
 			
-
 			# Get the name of the product
 			name = item.find_element(By.XPATH, self.name_XPATH)	
-			product_name.append(name.text)
-			print("NAME: ", name.text)			
-
 			# Buscamos todas las coincidencias en el texto
 			coincidencias = re.findall(self.patron, name.text)
-
-			#datos = {'NAME':[],'ASIN':[],"QUANTITY":[],"UNIT":[],'PRICE':[],'RATINGS':[],'RATINGS NUM':[],'LINK':[]}
 
 			# Iteramos sobre las coincidencias y las imprimimos
 			if len(coincidencias) == 0: 
 				continue
 			else:
 				for cantidad, _, unidad in coincidencias:
+					#if                    
 					self.datos['QUANTITY'].append(cantidad)
 					self.datos['UNIT'].append(unidad)
 					#print("QUANTITY: ", cantidad)
@@ -139,7 +114,11 @@ class AmazonPriceScraper(object):
 				self.datos['NAME'].append(name.text)
 				self.datos['PRICE'].append(price)
 				self.datos['RATINGS'].append(ratings)
-				self.datos['RATINGS NUM'].append(ratings_num)
+				if isinstance(ratings_num,str):             
+					self.datos['RATINGS NUM'].append(int(ratings_num.replace(',', '')))
+				else:
+					self.datos['RATINGS NUM'].append(ratings_num)
+					pass
 				self.datos['LINK'].append(final_link)
 
 				#print("ASIN: ", asin)
@@ -152,10 +131,8 @@ class AmazonPriceScraper(object):
 
 		self.driver.quit()
 		amazon_df = pd.DataFrame.from_dict(self.datos)
-		#pprint.pprint(amazon_df)
-		#amazon_df['title'].replace('', np.nan, inplace=True)
-		#amazon_df = amazon_df.dropna(subset=['title'])
-		#amazon_df.to_csv("amazon_data.csv", header=True, index=False)		
+		amazon_df.sort_values(by=['RATINGS','RATINGS NUM'],inplace=True,ascending=[False, False])
+		#amazon_df.to_csv("amazon_data.csv", header=True, index=True)
 		return amazon_df
 		pass
 
@@ -164,22 +141,34 @@ class AmazonPriceScraper(object):
 		pass
 
 
-# In[17]:
+# In[153]:
 
 
 engine = AmazonPriceScraper()
 
 
-# In[18]:
+# In[154]:
 
 
-dataframe = engine.scraper_engine()
+dataframe = engine.scraper_engine(product = "shredded squash")
 
 
-# In[19]:
+# In[155]:
 
 
-#dataframe
+dataframe
+
+
+# In[158]:
+
+
+dataframe.iloc[0].to_dict()
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
