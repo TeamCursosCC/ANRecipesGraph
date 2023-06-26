@@ -11,22 +11,23 @@
   - [ ] Sugerir receta a partir de ingrediente [J]
     - [ ] Utilizar el camino mínimo para sacar la receta 
     - [ ] Grupos comunes de esos nodos y aplicar clúster y luego caminamos sobre cada grupo, sugerencia de recetas de un grupo 
-  - [ ] Sugerir sustituto para un ingrediente [R]
-    - Si un ingrediente participa en las mismas recetas que otro es altamente probable que sea sustituto. No necesariamente, Ejemplo: Agua y Sal...
+  - [x] Sugerir sustituto para un ingrediente [R]
+    - Si un ingrediente participa en las mismas recetas que otro es mas probable que sea sustituto.
   - [ ] Estimar el costo de una receta [R-J]
     - [ ] El Toque
     - [ ] Translate 
     - [ ] api de costos
     - [x] api de cantidades
 
-- [ ] Articulo 
+- [ ] Articulo en LaTex
 
 - [ ] Visualización en Gephi 
 
-  - [ ] Peso según grado 
-  - [ ] Color respecto tipo de receta 
+  - [?] Peso según grado -> El peso se asocia a los ejes, y el grado a los nodos...
+  - [~] Color respecto tipo de receta -> no tenemos esa info
 
 - [ ] Crear programa de pruebas para el Engine
+  - [ ] Documentar funcionamiento y uso en el README.md
 
 ## Ideas 
 
