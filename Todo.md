@@ -27,6 +27,7 @@
   - [~] Color respecto tipo de receta -> no tenemos esa info
 
 - [ ] Crear programa de pruebas para el Engine
+  - [x] UI con Menu
   - [ ] Documentar funcionamiento y uso en el README.md
 
 ## Ideas 
