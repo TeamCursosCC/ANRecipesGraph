@@ -1,8 +1,13 @@
+APP_NAME = "Recipes Engine"
+
 function_list = []
 
 def print_menu():
     if not function_list:
         print("Menu no configurado")
+        return
+    
+    print("Menu")
     
     i = 0
     for f in function_list:
@@ -29,6 +34,7 @@ def add_menu_option(fn:callable, label:str = ""):
 
 def main_loop():
     while True:
+        print(f"\n\t<<<  {APP_NAME}  >>>\n")
         print_menu()
         choice = int(input("Enter your choice: "))
         if choice in range(1, len(function_list)+1):
@@ -39,6 +45,8 @@ def main_loop():
         else:
             print("Invalid choice, please try again.")
         print("\n")
+        pass
+    pass
         
 
 if __name__ == "__main__":
