@@ -144,7 +144,8 @@ class RecipesEngine:
 
         # 4. Devolver el ingrediente con mayor orden de aparicion, o la lista con los ingredientes coincidentes con el marcador de orden de aparicion. Se puede normalizar el orden de aparicion de 0 a 1 para tomarlo como probabilidad de aparicion.
 
-        total = len(selected_ingredients)
+        # total = len(selected_ingredients)
+        total = len(selected_communities)
         print("\nSelected Ingredients distribution:")
         for k in selected_ingredients:
             selected_ingredients[k] /= total

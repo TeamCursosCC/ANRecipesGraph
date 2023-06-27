@@ -30,6 +30,8 @@
   - [x] UI con Menu
   - [ ] Documentar funcionamiento y uso en el README.md
 
+- [ ] Listado de dependencias
+
 ## Ideas 
 
 - [ ] [precios el toque](https://precio-alimentos.eltoque.com/)
