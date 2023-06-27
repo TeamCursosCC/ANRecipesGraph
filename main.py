@@ -21,7 +21,7 @@ def find_subsitute_for_an_ingredient():
     target_ingredient = input("Ingrediente: ")
     recipe_hint = None
     substitute = recipes_engine.suggest_ingredient_substitute(target_ingredient, recipe_hint)
-    print(f"{target_ingredient} could be replaced by {substitute}")
+    print(f"\nResponse -> {target_ingredient} could be replaced by {substitute}")
     pass
 
 def print_related_recipes_for_ingredient():
