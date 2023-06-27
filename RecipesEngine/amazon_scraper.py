@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[85]:
-
-
 #Necessary library importation
 import re
 import time
@@ -16,10 +13,6 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-
-
-# In[152]:
-
 
 class AmazonPriceScraper(object):
 	"""docstring for AmazonProductScraper"""
@@ -46,7 +39,7 @@ class AmazonPriceScraper(object):
 		self.options.add_argument("--lang=en")
 		
 		self.driver = webdriver.Chrome(options=self.options)
-		self.wait = WebDriverWait(self.driver, 5)
+		self.wait = WebDriverWait(self.driver, 10)
 
 		self.driver.get(url)
 
@@ -59,11 +52,13 @@ class AmazonPriceScraper(object):
 			(By.CSS_SELECTOR, "[aria-labelledby='GLUXZipUpdate-announce']"))).click()
 		self.wait.until(EC.element_to_be_clickable(
 			(By.CSS_SELECTOR, ".a-popover-footer #GLUXConfirmClose"))).click()
-		time.sleep(1)
+		time.sleep(5)
 		
 		#self.wait.until(EC.element_to_be_clickable(
 		#	(By.CSS_SELECTOR, ".glow-toaster-footer input[data-action-type='DISMISS']"))).click()      
-		items = self.wait.until(EC.presence_of_all_elements_located((By.XPATH, '//div[contains(@class, "s-result-item s-asin")]')))
+		
+		items = self.wait.until(
+			EC.presence_of_all_elements_located((By.XPATH, '//div[contains(@class, "s-result-item s-asin")]')))
         
 		for item in items:
 			
@@ -103,8 +98,7 @@ class AmazonPriceScraper(object):
 			if len(coincidencias) == 0: 
 				continue
 			else:
-				for cantidad, _, unidad in coincidencias:
-					#if                    
+				for cantidad, _, unidad in coincidencias:                    
 					self.datos['QUANTITY'].append(cantidad)
 					self.datos['UNIT'].append(unidad)
 					#print("QUANTITY: ", cantidad)
@@ -121,58 +115,27 @@ class AmazonPriceScraper(object):
 					pass
 				self.datos['LINK'].append(final_link)
 
-				#print("ASIN: ", asin)
-				#print("NAME: ", name.text)
-				#print("PRICE: ", price)
-				#print("RATINGS: ", ratings)
-				#print("RATINGS NUM:", ratings_num)
-				#print("LINK: ", final_link)
-				#print("")
-
+				"""
+				print("ASIN: ", asin)
+				print("NAME: ", name.text)
+				print("PRICE: ", price)
+				print("RATINGS: ", ratings)
+				print("RATINGS NUM:", ratings_num)
+				print("LINK: ", final_link)
+				print("")
+				"""
+		time.sleep(5)
 		self.driver.quit()
-		amazon_df = pd.DataFrame.from_dict(self.datos)
-		amazon_df.sort_values(by=['RATINGS','RATINGS NUM'],inplace=True,ascending=[False, False])
-		#amazon_df.to_csv("amazon_data.csv", header=True, index=True)
-		return amazon_df
+		time.sleep(5)
+
+		if len(set(map(len, [self.datos['QUANTITY'],self.datos['UNIT'],self.datos['ASIN'],self.datos['NAME'],self.datos['PRICE'],self.datos['RATINGS'],self.datos['RATINGS NUM'],self.datos['LINK']]))) == 1:
+			amazon_df = pd.DataFrame.from_dict(self.datos)
+			amazon_df.sort_values(by=['RATINGS','RATINGS NUM'],inplace=True,ascending=[False, False])
+			return amazon_df.iloc[0].to_dict()
+			pass
+		print("ERROR")
 		pass
 
 	def quit(self):
 		self.driver.quit()
 		pass
-
-
-# In[153]:
-
-
-engine = AmazonPriceScraper()
-
-
-# In[154]:
-
-
-dataframe = engine.scraper_engine(product = "shredded squash")
-
-
-# In[155]:
-
-
-dataframe
-
-
-# In[158]:
-
-
-dataframe.iloc[0].to_dict()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
