@@ -74,6 +74,13 @@ def print_related_ingredients_for_recipe():
         print(i)
     pass
 
+def list_some_items_from_graph(limit=15, begin=0):
+    "Print Some Items from graph to take as reference"
+    begin = int(input("begin: "))
+    limit = int(input("Limit: "))
+    items = recipes_engine.list_some_recipes_or_ingredients(limit, begin)
+    [print("-->", i) for i in items]
+    pass
 
 def main():
     # Configurar Menu
@@ -83,6 +90,7 @@ def main():
     add_menu_option(find_subsitute_for_an_ingredient)
     add_menu_option(print_related_recipes_for_ingredient)
     add_menu_option(print_related_ingredients_for_recipe)
+    add_menu_option(list_some_items_from_graph)
 
     main_loop()
     pass

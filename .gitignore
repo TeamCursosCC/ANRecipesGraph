@@ -10,7 +10,7 @@ __pycache__/
 data/*.csv
 data/*.json
 data/*.graphml
-data/*.rar
+# data/*.rar
 
 # Archivos compilados y binarios
 *.pyc

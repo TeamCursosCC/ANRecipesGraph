@@ -1,30 +1,35 @@
-# Analisis de Grafo de Recetas
+# Recipes and Ingredient Graph Analysis
 
-Proyecto de posgrado de anlisis de redes 2023.
-Analisis sobre grafo de recetas de cocina.
+## Objective
 
-## Herramientas
+Create the bases for an engine that allows for analysis of a network of recipes and ingredients.
+
+## Tools
 
 * Python
 * networkx
 * Gephi
 * LateX
 
-## Orientacion
+## Main features
 
-* Recomendaciones de recetas utilizando el grafo de ingredientes
-* Engine para ayudar a la gente a cocinar utilizando los algoritmos del curso u otros a considerar.
-* proponer recetas por región
-* proponer sustituciones
+* Suggest recipes for given ingredients
+* Suggest an ingredient replacement
+* Estimate the possible cost for a given recipe
 
-* Entregar 26 de junio
-* Discutir a la semana siguiente
+## How to test
 
-## Pasos para probar el engine
+1. Unzip the file recipes_graph.graphml
+2. Execute main.py
+3. Pick an option from the printed Menu and follow the instructions
+4. The answer for your selected opction will be printed
+5. The menu will be displayed again
+6. To end the program pick the option: 0
 
-1. Descomprimir el archivo recipes_graph.graphml
-2. Abrir el main.py
-3. observar la opciones disponibles
-4. activar las opciones que se desean probar descomentando el codigo correspondiente y modificando los parametros de entrada
-5. al ejecutar el main.py se imprimiran las respuestas relacionadas a las opciones establecidas
-6. para generar nuevas respuestas cerrar el programa y comenzar por el paso 4
+## Dependencies
+
+networkx
+pandas
+matplotlib
+urllib
+selenium
