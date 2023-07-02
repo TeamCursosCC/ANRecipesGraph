@@ -2,15 +2,23 @@
 
 ## Ideas
 
-* Sugerencias de sustitucion de ingredientes
-* Informacion sobre obtención
-* Crear un Menu Diario
-* Crear un Menu Semanal
-* Crear un Menu Mensual
-* Ubicación de los ingredientes
-* Costo de los ingredientes y las recetas
-* Balance Nutricional
-* De una lista de ingredientes sugerir posibles recetas
+* Sugerencias de sustitucion de ingredientes (Analisis de redes)
+
+* Informacion sobre obtención (metodo de elaboracion, metadatado, instrucciones)
+
+* Crear un Menu
+  * diario
+  * semanal
+  * mensual
+
+* Ubicación de los ingredientes (tabla con datos regionales y de epoca)
+
+* Costo de los ingredientes y las recetas (tabla con datos de costos)
+
+* Balance Nutricional (tabla con datos notricionales)
+
+* De una lista de ingredientes sugerir posibles recetas (analisis de grafo)
+
 * Estimacion de porciones de tipicas frases de la concina a una porcion con unidad de medida del SI
 
 * Usando NLTK compilar las instrucciones de recetas de cocina para extraer:
@@ -19,7 +27,9 @@
   * metodo de aplicacion
 
 * A partir del balance nutricional escoger posibles ingredientes
+
 * Filtrar ingredientes por zona
+
 * Sugerir recetas a partir de ingredientes
 
 ## Modelo de Datos
@@ -99,7 +109,7 @@ Espero que esto te sea de ayuda. ¡Buen provecho!
 
 ## Solicitud de Implementacion
 
-Deseo crear un programa en python para estimar el costo de cada plato y el costo total de un menu diario, un menu semanal y un menu mensual, a aprtir de una sugerenciar de dichos menus, conociendo los ingredientes, sus cantidades por cada plato y el costo de cada ingrediente. Un problema que surge des este enfoque es la conversión entre diferentes sistemas de unidades sobre los ingredientes, atendiendo a sus cantidades y unidad de medida, por ejemplo, en las recetas se suele emplear denominaciones difusas como cucharadita, o taza, en la venta de productos se suelen utilizar pesos en diferentes unidadades como libras o gramos, en el caso de los líquitdos tapitas, litros, etc. Seria bueno construir una forma de abstracción que permita normalizar y homogeneizar estas unidades para realizar estimaciones precisas de las cantidades y por tanto costos implicados. Por ejemplo: un vendedor vende una libra de papas a x precio, pero para una comida quizas se necesiten 3 papas, en este caso hay una discrepancia por falta de informacion pues el tamaño y peso de cada papa no es conocido para realizar una división del precio por la cantidad, por tanto hay que realizar una estimacion difusa del costo tomando algun factor como el peso y tamaño medio de las papas. Todo esto debe quedar en el modelo de abstraccion de forma que sea ajustable en cualquier momento para ir mejorarndo las predicciones. Se puede dar la posibilidad de entrar el costo exacto de cada ingrediente en cada plato, a modo de reforzamiento de la predicción. La idea central es partir de tablas con los ingredientes, recetas y los datos necesarios y construir un grafo que mediante el analisis de grafos, permita obtener: sugerencias de platos a partir de ingredientes dados, estimar el costo de cada plato partir del costo estimado por el modelo descrito de cada ingrediente, sugerir subtitutos de ingredientes para una receta dada. Realizar un analisis de todos estos requerimientos y sugerir una posible implementacion teniendo en cuenta el lenguaje python, librerias como networkx y formato de datos json. Además sugerir métodos factibles para ir construyendo y mejorando la base de datos y el modelo de estimación de precios. Ver si hay articulos relacionados que puedan ser de utilidad.
+Deseo crear un programa en python para estimar el costo de cada plato y el costo total de un menu diario, un menu semanal y un menu mensual, a partir de una sugerenciar de dichos menus, conociendo los ingredientes, sus cantidades por cada plato y el costo de cada ingrediente. Un problema que surge de este enfoque es la conversión entre diferentes sistemas de unidades sobre los ingredientes, atendiendo a sus cantidades y unidad de medida, por ejemplo, en las recetas se suele emplear denominaciones difusas como cucharadita, o taza, en la venta de productos se suelen utilizar pesos en diferentes unidadades como libras o gramos, en el caso de los líquitdos tapitas, litros, etc. Seria bueno construir una forma de abstracción que permita normalizar y homogeneizar estas unidades para realizar estimaciones precisas de las cantidades y por tanto costos implicados. Por ejemplo: un vendedor vende una libra de papas a x precio, pero para una comida quizas se necesiten 3 papas, en este caso hay una discrepancia por falta de informacion pues el tamaño y peso de cada papa no es conocido para realizar una división del precio por la cantidad, por tanto hay que realizar una estimacion difusa del costo tomando algun factor como el peso y tamaño medio de las papas. Todo esto debe quedar en el modelo de abstraccion de forma que sea ajustable en cualquier momento para ir mejorarndo las predicciones. Se puede dar la posibilidad de entrar el costo exacto de cada ingrediente en cada plato, a modo de reforzamiento de la predicción. La idea central es partir de tablas con los ingredientes, recetas y los datos necesarios y construir un grafo que mediante el analisis de grafos, permita obtener: sugerencias de platos a partir de ingredientes dados, estimar el costo de cada plato partir del costo estimado por el modelo descrito de cada ingrediente, sugerir subtitutos de ingredientes para una receta dada. Realizar un analisis de todos estos requerimientos y sugerir una posible implementacion teniendo en cuenta el lenguaje python, librerias como networkx y formato de datos json. Además sugerir métodos factibles para ir construyendo y mejorando la base de datos y el modelo de estimación de precios. Ver si hay articulos relacionados que puedan ser de utilidad.
 
 ### Respuesta a la solicitud por ChatGPT
 
@@ -190,3 +200,29 @@ Overall, adding additional data to the graph of recipes and ingredients can impr
 ## Fuentes de datos por verificar
 
 * [precios el toque](https://precio-alimentos.eltoque.com/)
+
+
+## Estrategias para Menus
+
+### Preguntas
+
+Qué aspectos se deben tener en cuenta para crear un menu semanal para dos personas, incluyendo desayuno, almuerzo y comida? Dado un grafo de ingredientes y recetas, qué información sería relevante para a partir del grafo extraer las sugerencias de las recetas que pueden ser consideradas en el menú? Cómo utilizar tecnicas de analisis de grafos para determinar qué recetas serían buenas sustitutas para una receta dada?
+
+### Sugerencias
+
+Para crear un menú semanal para dos personas, es importante tener en cuenta los siguientes aspectos:
+
+1. Gustos y preferencias alimentarias de las personas involucradas.
+2. Disponibilidad de tiempo para cocinar y preparar las comidas.
+3. Presupuesto disponible para la compra de ingredientes.
+4. Nutrientes necesarios para una alimentación saludable y balanceada.
+5. Variedad de alimentos para evitar la monotonía y asegurar una dieta equilibrada.
+
+Con respecto al grafo de ingredientes y recetas, la información relevante para extraer sugerencias de recetas para el menú sería:
+
+1. La lista de ingredientes necesarios para cada receta.
+2. Las categorías de las recetas (por ejemplo, desayuno, almuerzo, cena, vegetariano, sin gluten, etc.).
+3. La complejidad de la receta (por ejemplo, tiempo de preparación, nivel de habilidad culinaria requerido).
+4. Las recetas que utilizan ingredientes similares o relacionados.
+
+Para determinar qué recetas serían buenas sustitutas para una receta dada, se pueden utilizar técnicas de análisis de grafos como la búsqueda de vecindarios o la identificación de comunidades. Por ejemplo, si se tiene una receta que utiliza pollo como ingrediente principal, se podría buscar otras recetas que también utilicen pollo y que tengan ingredientes similares o relacionados. También se podría identificar comunidades de recetas que comparten ingredientes similares y explorar las opciones dentro de esas comunidades como posibles sustitutas para la receta dada.

@@ -1,0 +1,30 @@
+# Compiled Python files
+__pycache__/
+
+# Logs y archivos temporales
+*.log
+*.swp
+*.tmp
+
+# Archivos de datos grandes
+data/*.csv
+data/*.json
+data/*.graphml
+data/*.rar
+
+# Archivos compilados y binarios
+*.pyc
+*.pyo
+*.dll
+*.exe
+*.obj
+*.so
+
+# Carpeta de dependencias de Python
+venv/
+
+# Archivos de configuración de IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
