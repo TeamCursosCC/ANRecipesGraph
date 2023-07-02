@@ -83,7 +83,7 @@ class RecipesEngine:
 
 	def suggest_recipes_from_ingredients(self, original_ingredients: list):
 		"""
-		Minimo entrar 2 ingredientes o mayor 
+		Minimo entrar 3 ingredientes o mayor 
 		"""
 
 		#1. Se obtienen todas las combinaciones de los ingredientes como 
