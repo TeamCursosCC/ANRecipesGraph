@@ -40,8 +40,6 @@ def suggest_recipe_for_given_ingredients():
                 print("(!) Debe agregar mas ingredientes.")
                 continue
             break
-        # TODO: Validar nombre de ingrediente
-        # TODO: Realizar busqueda parcial de los nombres de los ingredientes
         ingredients.append(inp)
         pass
 
