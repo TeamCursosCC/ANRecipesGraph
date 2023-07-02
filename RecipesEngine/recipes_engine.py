@@ -271,5 +271,9 @@ class RecipesEngine:
 
     def get_ingredients_for_recipe(self, recipe: str):
         return self.recipesGraph.successors(recipe)
+    
+    def list_some_recipes_or_ingredients(self, limit=15, begin=0, hint=None):
+        nodes = list(self.recipesGraph.nodes())
+        return nodes[begin:begin+limit:None]
 
     pass
