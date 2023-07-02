@@ -25,3 +25,11 @@ Create the bases for an engine that allows for analysis of a network of recipes 
 4. The answer for your selected opction will be printed
 5. The menu will be displayed again
 6. To end the program pick the option: 0
+
+## Dependencies
+
+networkx
+pandas
+matplotlib
+urllib
+selenium

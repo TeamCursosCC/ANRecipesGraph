@@ -19,18 +19,18 @@
     - [x] api de costos
     - [x] api de cantidades
 
-- [ ] Articulo en LaTex
+- [x] Articulo en LaTex
 
 - [ ] Visualización en Gephi 
 
   - [?] Peso según grado -> El peso se asocia a los ejes, y el grado a los nodos...
   - [~] Color respecto tipo de receta -> no tenemos esa info
 
-- [ ] Crear programa de pruebas para el Engine
+- [x] Crear programa de pruebas para el Engine
   - [x] UI con Menu
-  - [ ] Documentar funcionamiento y uso en el README.md
+  - [x] Documentar funcionamiento y uso en el README.md
 
-- [ ] Listado de dependencias
+- [x] Listado de dependencias
 
 ## Ideas 
 
